@@ -81,3 +81,15 @@ textarea{
   justify-content: flex-end;
   
 }
+
+.past {
+  background-color: grey;
+}
+
+.present {
+  background-color: red;
+}
+
+.future {
+  background-color: green;
+}

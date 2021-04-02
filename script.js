@@ -15,7 +15,7 @@ var data = JSON.parse(localStorage.getItem("userInput")) || [];
 for (let i = 0; i < data.length; i++) {
     var queryString = "#hour"+data[i].timeBlock;
     document.querySelector(queryString).children[1].value = data[i].text;
-}
+};
 
 //setup a click event on the save buttons
     // using the event.target, traverse the dom from the button to the textarea
@@ -35,28 +35,15 @@ for (let index = 0; index < saveBtnEl.length; index++) {
             text: userInput
         }
 
-        data.push(dataEntry);
+        //do a for loop over history to check for dups - delete it - sort map filter reduce
+        var updateddata = data.filter(datum => datum.timeBlock !== timeBlockId);
+        
+        updateddata.push(dataEntry);
     
-        localStorage.setItem("userInput", JSON.stringify(data));
+        localStorage.setItem("userInput", JSON.stringify(updateddata));
     });
-}
+};
 
-
-
-
-// on pageload, pull all data from local storage and use the unique labels/identifiers mentioned above to determine where to put the value retrieved from localStorage
-// function renderUserText() {
-//     // use JSON.parse to convert text to JavaScript notation
-//     var userText = JSON.parse(localStorage.getItem("userInput"));
-//     console.log(userText);
-//     // check if data is returned, if not exit out of the function
-//     if (userText !== null) {
-//         document.getElementById("planner-text").innerHTML = userText;
-//     } else {
-//         console.log("not successful");
-//     }
-// }
-// renderUserText();
 
 // for determining css backgroundcolor:
     // iterate over all hour elements
@@ -78,4 +65,18 @@ for (let index = 0; index < saveBtnEl.length; index++) {
         } else if (timeBlockId > currentHour) {
             arrayHour[i].addClass("future");
         }
-    }
+    };
+
+    // on pageload, pull all data from local storage and use the unique labels/identifiers mentioned above to determine where to put the value retrieved from localStorage
+// function renderUserText() {
+//     // use JSON.parse to convert text to JavaScript notation
+//     var userText = JSON.parse(localStorage.getItem("userInput"));
+//     console.log(userText);
+//     // check if data is returned, if not exit out of the function
+//     if (userText !== null) {
+//         document.getElementById("planner-text").innerHTML = userText;
+//     } else {
+//         console.log("not successful");
+//     }
+// }
+// renderUserText();
