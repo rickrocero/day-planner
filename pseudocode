@@ -1,0 +1,23 @@
+// DAY PLANNER HOMEWORK
+// Setup HTML
+  //get moment and bootstrap cdn links (for bootstrap:  css and JS cdn link from the docs)
+  //layout the html
+    //add a jumbotron that display current day and date using moment (e.g. Wed, Mar 31st)
+  //create rows for hours (9am-5pm)
+    //parent div / hour div / text input /save button
+
+//Start JavaScript
+  //setup a click event on the save buttons
+    // using the event.target, traverse the dom from the button to the textarea
+    // also grab a unique identifier for placing the hour input value into localStorage
+
+  // on pageload, pull all data from local storage and use the unique labels/identifiers mentioned above to determine where to put the value retrieved from localStorage
+
+  // for determining css backgroundcolor:
+    // then iterate over all hour elements
+    //use moment to get the current time (specifically the hour)
+    // using an id/data attribute, determining what hour the current timeblock respresents (i.e the 'moment time')
+      // if the current element time is: 
+        // less than moment time, its grey
+        // same as moment time, its red
+        // greater than moment time, its green
